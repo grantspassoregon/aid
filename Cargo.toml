@@ -1,0 +1,37 @@
+[package]
+name = "aid"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+bin = ["bincode"]
+byte = ["byte-unit"]
+csvs = ["csv"]
+icon = ["dioxus-desktop"]
+img = ["image"]
+plot = ["plotters", "plotters-bitmap"]
+oauth = ["oauth2"]
+req = ["reqwest"]
+serial = ["serde", "serde_json"]
+uuids = ["uuid"]
+urls = ["url"]
+
+[dependencies]
+bincode = { version = "1.3.3", optional = true }
+byte-unit = { version = "5.1.3", optional = true }
+csv = { version = "1.3.0", optional = true }
+dioxus-desktop = { version = "0.4.3", optional = true }
+image = { version = "0.24.7", optional = true }
+oauth2 = { version = "4.4.2", optional = true }
+plotters = { version = "0.3.5", optional = true }
+plotters-bitmap = { version = "0.3.3", optional = true }
+reqwest = { version = "0.11.23", optional = true }
+serde = { version = "1.0.195", optional = true }
+serde_json = { version = "1.0.111", optional = true }
+thiserror = "1.0.56"
+url = { version = "2.5.0", optional = true }
+uuid = { version = "1.6.1", optional = true }
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
