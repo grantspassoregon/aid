@@ -165,6 +165,11 @@ pub enum Bandage {
     #[cfg_attr(docsrs, doc(cfg(feature = "win")))]
     #[error("Winit event loop error: {0}")]
     EventLoop(#[from] winit::error::EventLoopError),
+    /// The `WinOs` variant converts a `winit::error::OsError` from the `winit` crate.
+    #[cfg(feature = "win")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "win")))]
+    #[error("OS error: {0}")]
+    WinOs(#[from] winit::error::OsError),
     /// The `WinitIcon` variant converts a [`winit::window::BadIcon`] from the `winit` crate.
     #[cfg(feature = "win")]
     #[cfg_attr(docsrs, doc(cfg(feature = "win")))]
