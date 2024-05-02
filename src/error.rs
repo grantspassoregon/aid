@@ -180,4 +180,9 @@ pub enum Bandage {
     #[cfg_attr(docsrs, doc(cfg(feature = "gpu")))]
     #[error("From wgpu: {0}")]
     WgpuSurface(#[from] wgpu::CreateSurfaceError),
+    /// The `WgpuDevice` variant converts a [`wgpu::RequestDeviceError`] from the `wgpu` crate.
+    #[cfg(feature = "gpu")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "gpu")))]
+    #[error("From wgpu: {0}")]
+    WgpuDevice(#[from] wgpu::RequestDeviceError),
 }
