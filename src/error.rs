@@ -78,8 +78,13 @@ pub enum Bandage {
     #[cfg(feature = "oauth")]
     #[cfg_attr(docsrs, doc(cfg(feature = "oauth")))]
     #[error("Oauth2 error.")]
-    Oauth2(#[from] oauth2::RequestTokenError<oauth2::reqwest::Error<reqwest::Error>,
-    oauth2::StandardErrorResponse<oauth2::basic::BasicErrorResponseType>>),
+    Oauth2(
+        #[from]
+        oauth2::RequestTokenError<
+            oauth2::reqwest::Error<reqwest::Error>,
+            oauth2::StandardErrorResponse<oauth2::basic::BasicErrorResponseType>,
+        >,
+    ),
     /// The `Serialize` variant converts errors from the `serde` crate.
     #[cfg(feature = "serial")]
     #[cfg_attr(docsrs, doc(cfg(feature = "serial")))]
@@ -159,5 +164,10 @@ pub enum Bandage {
     #[cfg(feature = "win")]
     #[cfg_attr(docsrs, doc(cfg(feature = "win")))]
     #[error("Winit event loop error: {0}")]
-    EventLoop(#[from] winit::error::EventLoopError)
+    EventLoop(#[from] winit::error::EventLoopError),
+    /// The `WinitIcon` variant converts a [`winit::window::BadIcon`] from the `winit` crate.
+    #[cfg(feature = "win")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "win")))]
+    #[error("Winit icon error: {0}")]
+    WinitIcon(#[from] winit::window::BadIcon),
 }

@@ -7,5 +7,5 @@ pub mod error;
 
 /// The `prelude` module exports library types intended for public use.
 pub mod prelude {
-    pub use crate::error::{Clean, Bandage};
+    pub use crate::error::{Bandage, Clean};
 }
