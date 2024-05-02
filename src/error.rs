@@ -175,4 +175,9 @@ pub enum Bandage {
     #[cfg_attr(docsrs, doc(cfg(feature = "win")))]
     #[error("Winit icon error: {0}")]
     WinitIcon(#[from] winit::window::BadIcon),
+    /// The `WgpuSurface` variant converts a [`wgpu::CreateSurfaceError`] from the `wgpu` crate.
+    #[cfg(feature = "gpu")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "gpu")))]
+    #[error("From wgpu: {0}")]
+    WgpuSurface(#[from] wgpu::CreateSurfaceError),
 }
