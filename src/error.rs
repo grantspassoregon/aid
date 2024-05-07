@@ -186,3 +186,12 @@ pub enum Bandage {
     #[error("From wgpu: {0}")]
     WgpuDevice(#[from] wgpu::RequestDeviceError),
 }
+
+#[cfg(feature = "gis")]
+#[cfg_attr(docsrs, doc(cfg(feature = "gis")))]
+impl<T> From<std::sync::PoisonError<T>> for Bandage {
+    fn from(input: std::sync::PoisonError<T>) -> Self {
+        let msg = format!("{}", input.to_string());
+        Self::Hint(msg)
+    }
+}
