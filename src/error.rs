@@ -191,7 +191,6 @@ pub enum Bandage {
 #[cfg_attr(docsrs, doc(cfg(feature = "gis")))]
 impl<T> From<std::sync::PoisonError<T>> for Bandage {
     fn from(input: std::sync::PoisonError<T>) -> Self {
-        let msg = format!("{}", input.to_string());
-        Self::Hint(msg)
+        Self::Hint(input.to_string())
     }
 }
