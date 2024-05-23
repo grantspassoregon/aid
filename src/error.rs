@@ -185,6 +185,11 @@ pub enum Bandage {
     #[cfg_attr(docsrs, doc(cfg(feature = "gpu")))]
     #[error("From wgpu: {0}")]
     WgpuDevice(#[from] wgpu::RequestDeviceError),
+    /// The `Nom` variant converts errors from the `nom` crate.
+    #[cfg(feature = "parse")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "parse")))]
+    #[error("Nom error: {0}")]
+    Nom(String),
 }
 
 #[cfg(feature = "gis")]
@@ -192,5 +197,14 @@ pub enum Bandage {
 impl<T> From<std::sync::PoisonError<T>> for Bandage {
     fn from(input: std::sync::PoisonError<T>) -> Self {
         Self::Hint(input.to_string())
+    }
+}
+
+#[cfg(feature = "parse")]
+#[cfg_attr(docsrs, doc(cfg(feature = "parse")))]
+impl<'a> From<nom::Err<nom::error::Error<&'a str>>> for Bandage {
+    fn from(nom: nom::Err<nom::error::Error<&'a str>>) -> Self {
+        let message = format!("{}", nom);
+        Self::Nom(message)
     }
 }
