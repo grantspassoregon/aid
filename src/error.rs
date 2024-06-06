@@ -190,6 +190,11 @@ pub enum Bandage {
     #[cfg_attr(docsrs, doc(cfg(feature = "parse")))]
     #[error("Nom error: {0}")]
     Nom(String),
+    /// The `Tiberius` variant converts errors from the `tiberius` crate.
+    #[cfg(feature = "sql")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "sql")))]
+    #[error("Tiberius error: {0}")]
+    Tiberius(#[from] tiberius::error::Error),
 }
 
 #[cfg(feature = "gis")]

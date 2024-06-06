@@ -5,7 +5,27 @@ edition = "2021"
 
 [features]
 default = ["full"]
-full = ["bin", "byte", "csvs", "gis", "gpu", "hype", "icon", "id", "img", "oauth", "parse", "plot", "req", "route", "serial", "sql", "trace", "urls", "win"]
+full = [
+  "bin",
+  "byte",
+  "csvs",
+  "gis",
+  "gpu",
+  "hype",
+  "icon",
+  "id",
+  "img",
+  "oauth",
+  "parse",
+  "plot",
+  "req",
+  "route",
+  "serial",
+  "sql",
+  "trace",
+  "urls",
+  "win",
+]
 bin = ["bincode"]
 byte = ["byte-unit"]
 csvs = ["csv"]
@@ -21,7 +41,7 @@ oauth = ["oauth2"]
 req = ["reqwest"]
 route = ["axum"]
 serial = ["serde", "serde_json"]
-sql = ["sqlx"]
+sql = ["sqlx", "tiberius"]
 trace = ["tracing-subscriber"]
 urls = ["url"]
 win = ["winit"]
@@ -47,6 +67,7 @@ serde_json = { version = "1.0.117", optional = true }
 shapefile = { version = "0.6.0", optional = true }
 sqlx = { version = "0.7.3", optional = true }
 thiserror = "1.0.61"
+tiberius = { version = "0.12.2", optional = true }
 tracing-subscriber = { version = "0.3.18", optional = true }
 url = { version = "2.5.0", optional = true }
 uuid = { version = "1.6.1", optional = true }
