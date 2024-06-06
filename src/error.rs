@@ -195,6 +195,11 @@ pub enum Bandage {
     #[cfg_attr(docsrs, doc(cfg(feature = "sql")))]
     #[error("Tiberius error: {0}")]
     Tiberius(#[from] tiberius::error::Error),
+    /// The `Dotenv` variant converts errors from the `dotenvy` crate.
+    #[cfg(feature = "env")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "env")))]
+    #[error("Dotenvy error: {0}")]
+    Dotenv(#[from] dotenvy::Error),
 }
 
 #[cfg(feature = "gis")]

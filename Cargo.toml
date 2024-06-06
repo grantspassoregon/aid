@@ -9,6 +9,7 @@ full = [
   "bin",
   "byte",
   "csvs",
+  "env",
   "gis",
   "gpu",
   "hype",
@@ -29,6 +30,7 @@ full = [
 bin = ["bincode"]
 byte = ["byte-unit"]
 csvs = ["csv"]
+env = ["dotenvy"]
 gis = ["geojson", "shapefile", "galileo"]
 gpu = ["wgpu"]
 hype = ["hyper"]
@@ -52,6 +54,7 @@ bincode = { version = "1.3.3", optional = true }
 byte-unit = { version = "5.1.3", optional = true }
 csv = { version = "1.3.0", optional = true }
 dioxus-desktop = { version = "0.5.1", optional = true }
+dotenvy = { version = "0.15.7", optional = true }
 galileo = { git = "https://github.com/Maximkaaa/galileo", optional = true }
 geojson = { version = "0.24.1", optional = true }
 hyper = { version = "1.2.0", optional = true }
