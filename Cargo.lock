@@ -3220,11 +3220,7 @@ checksum = "5ee4be2c948921a1a5320b629c4193916ed787a7f7f293fd3f7f5a6c9de74155"
 dependencies = [
  "futures-util",
  "http 1.1.0",
-<<<<<<< HEAD
  "hyper 1.4.0",
-=======
- "hyper 1.3.1",
->>>>>>> 012c7ed9d96d627975dea2381cca640fa431cf61
  "hyper-util",
  "rustls 0.23.10",
  "rustls-pki-types",
@@ -5562,11 +5558,7 @@ dependencies = [
  "http 1.1.0",
  "http-body 1.0.0",
  "http-body-util",
-<<<<<<< HEAD
  "hyper 1.4.0",
-=======
- "hyper 1.3.1",
->>>>>>> 012c7ed9d96d627975dea2381cca640fa431cf61
  "hyper-rustls 0.27.2",
  "hyper-tls 0.6.0",
  "hyper-util",
