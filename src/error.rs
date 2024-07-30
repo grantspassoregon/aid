@@ -200,6 +200,11 @@ pub enum Bandage {
     #[cfg_attr(docsrs, doc(cfg(feature = "env")))]
     #[error("Dotenvy error: {0}")]
     Dotenv(#[from] dotenvy::Error),
+    /// The `Jiff` variant converts errors from the `jiff` crate.
+    #[cfg(feature = "time")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "time")))]
+    #[error("Jiff error: {0}")]
+    Jiff(#[from] jiff::Error),
 }
 
 #[cfg(feature = "gis")]
