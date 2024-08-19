@@ -1,6 +1,6 @@
 //! The `error` module defines a library-specific [`Bandage`] alias for `Error`, and an alias for
 //! Result, [`Clean`], using the `Error` alias.
-use thiserror::Error;
+use derive_more::Error;
 
 /// The `Clean` type is an alias for `Result` using the library-defined [`Bandage`].
 pub type Clean<T> = Result<T, Bandage>;
