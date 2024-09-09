@@ -2,6 +2,7 @@
 #![cfg_attr(docsrs, feature(doc_cfg))]
 //! An error-handling library for bubbling up errors in library code.
 
+pub mod aid;
 /// The `error` module holds aliases for `Result` and `Error`.
 mod error;
 
