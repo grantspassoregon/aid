@@ -81,7 +81,7 @@ pub enum Bandage {
     Oauth2(
         #[from]
         oauth2::RequestTokenError<
-            oauth2::reqwest::Error<reqwest::Error>,
+            oauth2::reqwest::Error,
             oauth2::StandardErrorResponse<oauth2::basic::BasicErrorResponseType>,
         >,
     ),

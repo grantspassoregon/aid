@@ -1,13 +1,13 @@
 //! The `aid` module defines a library-specific [`Bandage`] alias for `Error`, and an alias for
 //! Result, [`Clean`], using the `Error` alias.
-use derive_more::Error;
+use std::error::Error;
 
 /// The `Clean` type is an alias for `Result` using the library-defined [`Bandage`].
 pub type Clean<T> = Result<T, Bandage>;
 
 /// The `Bandage` enum is a library-specific error conversion.
 // #[derive(Debug, derive_more::Error, derive_more::Display, derive_more::From)]
-#[derive(Debug, Error, derive_more::Display, derive_more::From)]
+#[derive(Debug, derive_more::Error, derive_more::Display, derive_more::From)]
 pub enum Bandage {
     /// The `Auth` variant indicates an error occurred during the authorization process.
     #[display("Authorization failed: {:?}", self.source())]
@@ -85,7 +85,7 @@ pub enum Bandage {
     Oauth2(
         #[from]
         oauth2::RequestTokenError<
-            oauth2::reqwest::Error<reqwest::Error>,
+            oauth2::reqwest::Error,
             oauth2::StandardErrorResponse<oauth2::basic::BasicErrorResponseType>,
         >,
     ),
